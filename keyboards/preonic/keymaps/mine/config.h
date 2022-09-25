@@ -17,10 +17,9 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-#define MY_OWN_SOUND                                                           \
-  HD_NOTE(_C6), HD_NOTE(_F6), HD_NOTE(_AS6), HD_NOTE(_DS7), HD_NOTE(_F7)
+#    define MY_OWN_SOUND HD_NOTE(_C6), HD_NOTE(_F6), HD_NOTE(_AS6), HD_NOTE(_DS7), HD_NOTE(_F7), HD_NOTE(_FS6), HD_NOTE(_AS6), HD_NOTE(_CS7)
 
-#define STARTUP_SONG SONG(MY_OWN_SOUND)
+#    define STARTUP_SONG SONG(MY_OWN_SOUND)
 /* // #define STARTUP_SONG SONG(NO_SOUND) */
 
 /* #define DEFAULT_LAYER_SONGS \ */

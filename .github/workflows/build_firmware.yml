@@ -38,3 +38,4 @@ jobs:
           cd qmk_firmware
           make preonic/rev3:my_keymap
         working-directory: ${{ github.workspace }}
+        

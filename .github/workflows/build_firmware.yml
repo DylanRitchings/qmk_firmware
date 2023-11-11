@@ -31,5 +31,5 @@ jobs:
       - name: Build Firmware
         run: |
           cd qmk_firmware
-          make -j$(nproc) preonic/rev3:my_keymap
+          make preonic/rev3:my_keymap
         working-directory: ${{ github.workspace }}

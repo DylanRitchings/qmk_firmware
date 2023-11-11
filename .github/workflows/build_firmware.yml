@@ -21,9 +21,11 @@ jobs:
 
       - name: Set up QMK Firmware
         run: |
-          git clone https://github.com/qmk/qmk_firmware.git
-          cd qmk_firmware
-          git submodule update --init --recursive
+          if [ ! -d "qmk_firmware" ]; then
+            git clone https://github.com/qmk/qmk_firmware.git
+            cd qmk_firmware
+            git submodule update --init --recursive
+          fi
         working-directory: ${{ github.workspace }}
 
       - name: Build Firmware

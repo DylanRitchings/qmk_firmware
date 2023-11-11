@@ -46,8 +46,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void matrix_init_user(void) {
-    // Set the initial backlight color to white
-    // This function may vary depending on your keyboard
-    // Use the appropriate QMK backlight function for your keyboard
-    set_backlight_color(RGB_WHITE);
+    set_rgb(255, 255, 255);
 }

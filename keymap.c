@@ -4,7 +4,8 @@
 enum preonic_layers {
   _QWERTY,
   _LOWER,
-  _RAISE
+  _RAISE,
+  _ADJUST
 };
 
 enum preonic_keycodes {

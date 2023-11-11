@@ -13,6 +13,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Copy Custom Keymap
+        run: |
+          mkdir -p qmk_firmware/keyboards/preonic/keymaps/my_keymap
+          cp keymap.c qmk_firmware/keyboards/preonic/keymaps/my_keymap/
+        working-directory: ${{ github.workspace }}
+
       - name: Set up QMK Firmware
         run: |
           git clone https://github.com/qmk/qmk_firmware.git
@@ -22,6 +28,5 @@ jobs:
 
       - name: Build Firmware
         run: |
-          make -j$(nproc) -f qmk_firmware/Makefile keyboard_name:keymap_name
+          make -j$(nproc) -f qmk_firmware/Makefile preonic/rev3:my_keymap
         working-directory: ${{ github.workspace }}
-

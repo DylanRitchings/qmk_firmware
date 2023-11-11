@@ -27,8 +27,9 @@ jobs:
             git submodule update --init --recursive
           fi
         working-directory: ${{ github.workspace }}
-
+        
       - name: Build Firmware
         run: |
-          make -j$(nproc) -f qmk_firmware/Makefile preonic/rev3:my_keymap
+          cd qmk_firmware
+          make -j$(nproc) preonic/rev3:your_keymap_name
         working-directory: ${{ github.workspace }}

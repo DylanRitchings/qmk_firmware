@@ -1,0 +1,27 @@
+name: Build QMK Firmware
+
+on:
+  push:
+    branches:
+      - master  # Change this to match your repository's default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up QMK Firmware
+        run: |
+          git clone https://github.com/qmk/qmk_firmware.git
+          cd qmk_firmware
+          git submodule update --init --recursive
+        working-directory: ${{ github.workspace }}
+
+      - name: Build Firmware
+        run: |
+          make -j$(nproc) -f qmk_firmware/Makefile keyboard_name:keymap_name
+        working-directory: ${{ github.workspace }}
+

@@ -1,9 +1,5 @@
 #include QMK_KEYBOARD_H
 
-// Keymap layers
-#define _QWERTY 0
-#define _LOWER 1
-#define _RAISE 2
 
 enum preonic_layers {
   _QWERTY,
@@ -45,6 +41,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-void matrix_init_user(void) {
-    set_rgb(255, 255, 255);
+#ifdef RGBLIGHT_ENABLE
+void keyboard_post_init_user(void) {
+  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+  rgblight_sethsv_noeeprom(HSV_WHITE);  // Set the backlight color to white
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
+#endif

@@ -4,12 +4,8 @@
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-#define CTL_ALT_SHFT() \
-    QK_MACRO3( \
-        LCTL(KC_NO), \
-        LALT(KC_NO), \
-        LSFT(KC_NO) \
-    )
+#define CTL_ALT_SHFT \
+    (LCTL(LALT(KC_LSFT)))
 
 
 

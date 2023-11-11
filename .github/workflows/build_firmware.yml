@@ -12,17 +12,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: QMK setup
-        run: |
-          python3 -m pip install --user qmk
-          qmk setup --yes
-
-      - name: Copy Custom Keymap
-        run: |
-          mkdir -p qmk_firmware/keyboards/preonic/keymaps/my_keymap
-          cp keymap.c qmk_firmware/keyboards/preonic/keymaps/my_keymap/
-        working-directory: ${{ github.workspace }}
-
+        
+      # - name: QMK setup
+      #   run: |
+      #     python3 -m pip install --user qmk
+      #     qmk setup --yes
+          
       - name: Set up QMK Firmware
         run: |
           if [ ! -d "qmk_firmware" ]; then
@@ -30,6 +25,12 @@ jobs:
             cd qmk_firmware
             git submodule update --init --recursive
           fi
+        working-directory: ${{ github.workspace }}
+        
+      - name: Copy Custom Keymap
+        run: |
+          mkdir -p qmk_firmware/keyboards/preonic/keymaps/my_keymap
+          cp keymap.c qmk_firmware/keyboards/preonic/keymaps/my_keymap/
         working-directory: ${{ github.workspace }}
         
       - name: Build Firmware

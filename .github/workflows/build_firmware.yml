@@ -39,12 +39,9 @@ jobs:
           cd qmk_firmware
           make preonic/rev3:my_keymap
         working-directory: ${{ github.workspace }}
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        
+      - name: Archive Firmware
+        uses: actions/upload-artifact@v2
         with:
-          files: |
-            qmk_firmware/.build/*.bin
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          name: firmware
+          path: qmk_firmware/.build/*.bin 

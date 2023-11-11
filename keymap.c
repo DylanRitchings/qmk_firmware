@@ -5,6 +5,18 @@
 #define _LOWER 1
 #define _RAISE 2
 
+enum preonic_layers {
+  _QWERTY,
+  _LOWER,
+  _RAISE
+};
+
+enum preonic_keycodes {
+  QWERTY = SAFE_RANGE,
+  LOWER,
+  RAISE
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_preonic_grid(

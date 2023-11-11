@@ -18,7 +18,7 @@ jobs:
           python3 -m pip install --user qmk
           qmk setup --yes
           
-      - name: Set up QMK Firmware
+      - name: Clone QMK Firmware
         run: |
           if [ ! -d "qmk_firmware" ]; then
             git clone https://github.com/qmk/qmk_firmware.git
